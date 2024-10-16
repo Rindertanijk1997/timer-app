@@ -1,0 +1,23 @@
+.loading-container {
+    display: flex;
+    flex-direction: column; /* Arrangera innehållet vertikalt */
+    justify-content: center; /* Centrera vertikalt */
+    align-items: center; /* Centrera horisontellt */
+    height: 100%; /* Fyller hela höjden av mobilskärmen */
+    background-color: black; /* Svart bakgrund */
+    color: white; /* Vit textfärg */
+    text-align: center; /* Centrera texten */
+    cursor: pointer; /* Ändra muspekaren till hand när man hovrar */
+   
+  }
+  
+  .logo-h1 {
+    font-size: 36px; 
+  }
+  
+  .logo-p {
+    font-size: 18px; 
+    padding: 0;
+    margin: 0;
+  }
+  

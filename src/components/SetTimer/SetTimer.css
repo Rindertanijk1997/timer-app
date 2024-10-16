@@ -1,0 +1,58 @@
+/* src/components/SetTimer/SetTimer.css */
+
+.set-timer-container {
+    display: flex;
+    flex-direction: column; /* Arrangera innehållet i kolumn */
+    justify-content: center; /* Centrera allt innehåll vertikalt */
+    align-items: center; /* Centrera allt innehåll horisontellt */
+    height: 100%; /* Fyller hela höjden av mobilskärmen */
+    background-color: beige; /* Beige bakgrund */
+    color: black; /* Svart textfärg */
+    padding: 20px; /* Lite padding för att ge utrymme runt kanterna */
+}
+
+.set-time {
+    display: flex; /* Arrangera pilar och minuter i rad */
+    justify-content: space-between; /* Utrymmet mellan pilarna och minutvisningen */
+    align-items: center; /* Centrera vertikalt */
+    width: 100%; /* Fyller hela bredden */
+    margin-top: 50%; /* Flytta ner set-time sektionen */
+}
+
+.minutes {
+    display: flex; /* Arrangera siffror och text i kolumn */
+    flex-direction: column; /* Siffran och texten i kolumn */
+    align-items: center; /* Centrera horisontellt */
+}
+
+.minutes-time {
+    font-size: 72px; /* Storlek för siffran */
+    margin: 0; /* Ingen marginal */
+}
+
+.minutes-h3 {
+    font-size: 24px; /* Mindre storlek för "Minuter" */
+    margin: 5px 0; /* Lite utrymme ovanför och under texten */
+}
+
+.arrow {
+    background: none; /* Ingen bakgrund */
+    border: none; /* Ingen kantlinje */
+    font-size: 48px; /* Större storlek för pilarna */
+    color: black; /* Svart färg */
+    cursor: pointer; /* Ändra muspekaren till hand när man hovrar */
+    width: 50px; /* Bredd på pilarna för att lättare placera dem i kanterna */
+}
+
+.start-button {
+    margin-top: auto; /* Flytta knappen till botten av containern */
+    padding: 10px 30px; /* Utrymme inuti knappen */
+    font-size: 18px; /* Knappens textstorlek */
+    color: black; /* Textfärg */
+    background-color: beige; /* Bakgrundsfärg på knappen */
+    border-width: 2px; 
+    border-color: black;
+    border-radius: 5px; /* Rundade hörn */
+    cursor: pointer; /* Ändra muspekaren till hand när man hovrar */
+}
+
