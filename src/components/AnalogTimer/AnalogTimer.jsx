@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import './AnalogTimer.css';
 import Timer from 'easytimer.js';
 
 const AnalogTimer = () => {
@@ -11,50 +12,49 @@ const AnalogTimer = () => {
     const [minuteDegrees, setMinuteDegrees] = useState(0);
 
     useEffect(() => {
-        timer.start({ countdown: true, startValues: { seconds: minutes * 60 } });
-
-        timer.addEventListener('secondsUpdated', () => {
-            const remainingTime = timer.getTotalTimeValues();
-            setSecondDegrees(360 - (remainingTime.seconds * 6));
-            setMinuteDegrees(360 - (remainingTime.minutes * 6 + (remainingTime.seconds / 60) * 6));
-        });
-
-        timer.addEventListener('targetAchieved', () => {
-            console.log('Timer finished!');
-        });
-
+        const startTime = Date.now();
+    
+        const intervalId = setInterval(() => {
+            const now = Date.now();
+            const elapsed = now - startTime;  // Tiden som förflutit i millisekunder
+            const totalSeconds = elapsed / 1000;  // Omvandla till sekunder
+    
+            setSecondDegrees((totalSeconds % 60) * 6);  // Sekundvisaren
+    
+            if (minutes > 0) {
+                const minuteRotation = (totalSeconds / (minutes * 60)) * 360;
+                setMinuteDegrees(minuteRotation % 360);
+    
+                // Kontrollera om timern har nått sin inställda tid
+                if (totalSeconds >= minutes * 60) {
+                    clearInterval(intervalId);  // Stoppa timern
+                    navigate('/alarm-view');  // Byt till AlarmView
+                }
+            }
+        }, 1000 / 60);  
+    
         return () => {
-            timer.stop();
-        }
-    }, [minutes, timer]);
+            clearInterval(intervalId);
+        };
+    }, [minutes, navigate]);  // Inkludera 'navigate' i beroendelistan 
 
     const handleSwitchToDigital = () => {
         navigate('/digital-timer', { state: { minutes } });
     };
-
     return (
         <div className="analog-timer">
             <h1>Analog Timer</h1>
             <svg width="200" height="200">
                 <g transform="translate(100, 100)">
-                    {Array.from({ length: 60 }).map((_, index) => (
-                        <line
-                            key={index}
-                            x1="0"
-                            y1="-95"
-                            x2="0"
-                            y2="-85"
-                            stroke="black"
-                            strokeWidth="1"
-                            transform={`rotate(${index * 6})`}
-                        />
+                    {Array.from({ length: 60 }, (_, index) => (
+                        <line key={index} x1="0" y1="-95" x2="0" y2="-85" stroke="black" strokeWidth="1" transform={`rotate(${index * 6})`} />
                     ))}
                     <line
                         x1="0"
                         y1="0"
                         x2="0"
                         y2="-70"
-                        stroke="blue"
+                        stroke="black"
                         strokeWidth="2.5"
                         transform={`rotate(${minuteDegrees})`}
                     />
@@ -63,7 +63,7 @@ const AnalogTimer = () => {
                         y1="0"
                         x2="0"
                         y2="-85"
-                        stroke="red"
+                        stroke="black"
                         strokeWidth="1.5"
                         transform={`rotate(${secondDegrees})`}
                     />

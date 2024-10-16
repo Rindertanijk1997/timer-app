@@ -5,6 +5,7 @@ import Loading from './components/Loading/Loading';
 import SetTimer from './components/SetTimer/SetTimer';
 import DigitalTimer from './components/DigitalTimer/DigitalTimer';
 import AnalogTimer from './components/AnalogTimer/AnalogTimer';
+import AlarmView from './components/AlarmView/AlarmView';
 import './App.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
               <Route path="/set-timer" element={<SetTimer />} />
               <Route path="/digital-timer" element={<DigitalTimer />} />
               <Route path="/analog-timer" element={<AnalogTimer />} />
+              <Route path="/alarm-view" element={<AlarmView />} />
             </Routes>
           </div>
         </div>
