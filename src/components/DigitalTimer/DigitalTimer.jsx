@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Timer from 'easytimer.js';
 
 const DigitalTimer = () => {
   const location = useLocation();
   const { minutes } = location.state || { minutes: 0 };
-  const [secondsLeft, setSecondsLeft] = useState(minutes * 60);
   const navigate = useNavigate();
+  const [timer] = useState(new Timer());
+  const [timeValues, setTimeValues] = useState({ minutes: minutes, seconds: 0 });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setSecondsLeft(prevSecondsLeft => {
-        if (prevSecondsLeft <= 0) clearInterval(timer);
-        return prevSecondsLeft - 1;
-      });
-    }, 1000);
+    timer.start({ countdown: true, startValues: { seconds: minutes * 60 } });
 
-    return () => clearInterval(timer);
-  }, [minutes]);
+    timer.addEventListener('secondsUpdated', () => {
+      setTimeValues({
+        minutes: timer.getTimeValues().minutes,
+        seconds: timer.getTimeValues().seconds
+      });
+    });
+
+    timer.addEventListener('targetAchieved', () => {
+      console.log('Timer finished!');
+    });
+
+    return () => timer.stop();
+  }, [minutes, timer]);
 
   const handleSwitchToAnalog = () => {
     navigate('/analog-timer', { state: { minutes } });
@@ -24,7 +32,7 @@ const DigitalTimer = () => {
 
   return (
     <div className="digital-timer">
-      <h1>{Math.floor(secondsLeft / 60)}:{secondsLeft % 60 < 10 ? `0${secondsLeft % 60}` : secondsLeft % 60}</h1>
+      <h1>{timeValues.minutes}:{timeValues.seconds < 10 ? `0${timeValues.seconds}` : timeValues.seconds}</h1>
       <button onClick={() => navigate('/set-timer')}>Avbryt</button>
       <button onClick={handleSwitchToAnalog}>Byt till Analog Vy</button>
     </div>

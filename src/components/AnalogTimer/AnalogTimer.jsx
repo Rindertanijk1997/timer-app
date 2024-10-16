@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Timer from 'easytimer.js';
 
 const AnalogTimer = () => {
     const location = useLocation();
     const { minutes } = location.state || { minutes: 0 };
-    const [secondsLeft, setSecondsLeft] = useState(minutes * 60);
     const navigate = useNavigate();
+    const [timer] = useState(new Timer());
+    const [secondDegrees, setSecondDegrees] = useState(0);
+    const [minuteDegrees, setMinuteDegrees] = useState(0);
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setSecondsLeft(prevSecondsLeft => {
-                if (prevSecondsLeft <= 0) {
-                    clearInterval(timer);
-                    return 0; // Se till att vi inte går under 0
-                }
-                return prevSecondsLeft - 1;
-            });
-        }, 1000);
+        timer.start({ countdown: true, startValues: { seconds: minutes * 60 } });
 
-        return () => clearInterval(timer);
-    }, [minutes]);
+        timer.addEventListener('secondsUpdated', () => {
+            const remainingTime = timer.getTotalTimeValues();
+            setSecondDegrees(360 - (remainingTime.seconds * 6));
+            setMinuteDegrees(360 - (remainingTime.minutes * 6 + (remainingTime.seconds / 60) * 6));
+        });
+
+        timer.addEventListener('targetAchieved', () => {
+            console.log('Timer finished!');
+        });
+
+        return () => {
+            timer.stop();
+        }
+    }, [minutes, timer]);
 
     const handleSwitchToDigital = () => {
         navigate('/digital-timer', { state: { minutes } });
     };
 
-    const seconds = secondsLeft % 60;
-    const minutesPassed = Math.floor(secondsLeft / 60);
-
-  // Omvandla från "moturs" till "medurs" genom att subtrahera från 360 grader
-const secondDegrees = 360 - ((seconds % 60) * 6);
-const minuteDegrees = 360 - ((minutesPassed % 60) * 6 + (seconds / 60) * 6);
     return (
         <div className="analog-timer">
             <h1>Analog Timer</h1>
@@ -73,5 +74,4 @@ const minuteDegrees = 360 - ((minutesPassed % 60) * 6 + (seconds / 60) * 6);
         </div>
     );
 };
-
 export default AnalogTimer;
