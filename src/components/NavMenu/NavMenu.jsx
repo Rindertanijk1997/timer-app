@@ -21,6 +21,7 @@ const NavMenu = () => {
                         <li><Link to="/set-timer" onClick={toggleMenu}>Set Timer</Link></li>
                         <li><Link to="/digital-timer" onClick={toggleMenu}>Digital Timer</Link></li>
                         <li><Link to="/analog-timer" onClick={toggleMenu}>Analog Timer</Link></li>
+                        <li><Link to="/alarm-view" onClick={toggleMenu}>Alarm</Link></li>
                     </ul>
                 </div>
             )}

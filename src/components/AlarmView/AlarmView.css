@@ -1,0 +1,31 @@
+.alarm-view-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333; /* Mörk bakgrund */
+    overflow: hidden; /* Säkerställer att allt utanför containern inte syns */
+  }
+  
+  .alarm-icon {
+    width: 50px; /* Anpassa storleken efter dina behov */
+    height: auto;
+    animation: pulse 4s infinite linear;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(204, 204, 204, 0.7);
+      border-radius: 50%;
+    }
+    80%, 100% {
+      box-shadow: 0 0 0 100vmax rgba(204, 204, 204, 0);
+      border-radius: 50%;
+    }
+  }
+  
+  .times-up-text {
+    font-size: 2rem;
+    color: white;
+  }
