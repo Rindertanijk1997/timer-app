@@ -1,0 +1,40 @@
+.nav-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.nav-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(75, 75, 75, 0.932);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.nav-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 15px 0;
+}
+
+.nav-menu a {
+    color: rgba(230, 213, 157, 0.93);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 400;
+}
+

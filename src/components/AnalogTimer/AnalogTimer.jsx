@@ -33,7 +33,8 @@ const AnalogTimer = () => {
 
   return (
     <div className="analog-timer">
-      <h1>Analog Timer</h1>
+    <h1 className='Analog_h1'>Interval</h1>
+    <div className="clock-container">
       <svg width="200" height="200">
         <g transform="translate(100, 100)">
           {Array.from({ length: 60 }, (_, index) => (
@@ -59,9 +60,9 @@ const AnalogTimer = () => {
           />
         </g>
       </svg>
-      <button onClick={() => navigate('/set-timer')}>Avbryt</button>
-      <button onClick={() => navigate('/digital-timer')}>Byt till Digital Vy</button>
     </div>
+    <button onClick={() => navigate('/set-timer')} className="Analog_button">Avbryt</button>
+  </div>
   );
 };
 
