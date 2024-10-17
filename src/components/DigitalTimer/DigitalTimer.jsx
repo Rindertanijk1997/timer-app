@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TimerContext } from '../TimerContext';
+import './DigitalTimer.css'
 
 const DigitalTimer = () => {
   const { secondsLeft, setTimerActive } = useContext(TimerContext);

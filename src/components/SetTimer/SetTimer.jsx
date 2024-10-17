@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TimerContext } from '../TimerContext'; 
+import './SetTimer.css'
 
 const SetTimer = () => {
     const [minutes, setMinutes] = useState(1);
@@ -30,7 +31,7 @@ const SetTimer = () => {
                 </section>
                 <button className="arrow" onClick={increaseMinutes}>→</button>
             </section>
-            <button className="start-button" onClick={startTimerAndNavigate}>Starta Timer</button>
+            <button className="start_button" onClick={startTimerAndNavigate}>Starta Timer</button>
         </div>
     );
 };

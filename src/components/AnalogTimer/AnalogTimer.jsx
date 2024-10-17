@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TimerContext } from '../TimerContext';
+import './AnalogTimer.css'
 
 const AnalogTimer = () => {
   const { secondsLeft } = useContext(TimerContext);

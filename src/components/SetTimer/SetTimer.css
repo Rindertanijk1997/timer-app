@@ -1,58 +1,59 @@
-/* src/components/SetTimer/SetTimer.css */
-
 .set-timer-container {
     display: flex;
-    flex-direction: column; /* Arrangera innehållet i kolumn */
-    justify-content: center; /* Centrera allt innehåll vertikalt */
-    align-items: center; /* Centrera allt innehåll horisontellt */
-    height: 100%; /* Fyller hela höjden av mobilskärmen */
-    background-color: beige; /* Beige bakgrund */
-    color: black; /* Svart textfärg */
-    padding: 20px; /* Lite padding för att ge utrymme runt kanterna */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: beige;
+    color: black;
+    padding: 20px;
 }
 
 .set-time {
-    display: flex; /* Arrangera pilar och minuter i rad */
-    justify-content: space-between; /* Utrymmet mellan pilarna och minutvisningen */
-    align-items: center; /* Centrera vertikalt */
-    width: 100%; /* Fyller hela bredden */
-    margin-top: 50%; /* Flytta ner set-time sektionen */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 60%;
 }
 
 .minutes {
-    display: flex; /* Arrangera siffror och text i kolumn */
-    flex-direction: column; /* Siffran och texten i kolumn */
-    align-items: center; /* Centrera horisontellt */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .minutes-time {
-    font-size: 72px; /* Storlek för siffran */
-    margin: 0; /* Ingen marginal */
+    font-size: 72px;
+    margin: 0;
 }
 
 .minutes-h3 {
-    font-size: 24px; /* Mindre storlek för "Minuter" */
-    margin: 5px 0; /* Lite utrymme ovanför och under texten */
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0;
+    color: rgba(0, 0, 0, 0.743);
 }
 
 .arrow {
-    background: none; /* Ingen bakgrund */
-    border: none; /* Ingen kantlinje */
-    font-size: 48px; /* Större storlek för pilarna */
-    color: black; /* Svart färg */
-    cursor: pointer; /* Ändra muspekaren till hand när man hovrar */
-    width: 50px; /* Bredd på pilarna för att lättare placera dem i kanterna */
+    background: none;
+    border: none;
+    font-size: 48px;
+    color: black;
+    cursor: pointer;
+    width: 50px;
 }
 
-.start-button {
-    margin-top: auto; /* Flytta knappen till botten av containern */
-    padding: 10px 30px; /* Utrymme inuti knappen */
-    font-size: 18px; /* Knappens textstorlek */
-    color: black; /* Textfärg */
-    background-color: beige; /* Bakgrundsfärg på knappen */
-    border-width: 2px; 
-    border-color: black;
-    border-radius: 5px; /* Rundade hörn */
-    cursor: pointer; /* Ändra muspekaren till hand när man hovrar */
+.start_button {
+    margin-top: auto;
+    margin-bottom: 2rem;
+    padding: 10px 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    background-color: beige;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
 }
 
