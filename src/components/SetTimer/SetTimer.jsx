@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SetTimer.css';
+import { TimerContext } from '../TimerContext'; 
 
 const SetTimer = () => {
     const [minutes, setMinutes] = useState(1);
     const navigate = useNavigate();
+    const { startTimer } = useContext(TimerContext); 
 
     const increaseMinutes = () => {
         setMinutes(prevMinutes => prevMinutes + 1);
@@ -14,8 +15,9 @@ const SetTimer = () => {
         setMinutes(prevMinutes => (prevMinutes > 1 ? prevMinutes - 1 : 1));
     };
 
-    const startTimer = () => {
-        navigate('/digital-timer', { state: { minutes } });
+    const startTimerAndNavigate = () => {
+        startTimer(minutes); 
+        navigate('/digital-timer'); 
     };
 
     return (
@@ -28,7 +30,7 @@ const SetTimer = () => {
                 </section>
                 <button className="arrow" onClick={increaseMinutes}>→</button>
             </section>
-            <button className="start-button" onClick={startTimer}>Starta Timer</button>
+            <button className="start-button" onClick={startTimerAndNavigate}>Starta Timer</button>
         </div>
     );
 };
