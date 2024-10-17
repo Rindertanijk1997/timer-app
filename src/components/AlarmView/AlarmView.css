@@ -4,28 +4,59 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #333; /* Mörk bakgrund */
-    overflow: hidden; /* Säkerställer att allt utanför containern inte syns */
-  }
-  
-  .alarm-icon {
-    width: 50px; /* Anpassa storleken efter dina behov */
-    height: auto;
-    animation: pulse 4s infinite linear;
-  }
-  
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(204, 204, 204, 0.7);
-      border-radius: 50%;
-    }
-    80%, 100% {
-      box-shadow: 0 0 0 100vmax rgba(204, 204, 204, 0);
-      border-radius: 50%;
-    }
-  }
-  
-  .times-up-text {
+    background-color: #000; /* Svart bakgrund */
+    overflow: hidden;
+    position: relative;
+}
+
+.times-up-text {
     font-size: 2rem;
     color: white;
-  }
+    position: relative;
+    z-index: 1;
+}
+
+.alarm-view-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+    position: relative; /* Viktigt för absolut positionering */
+}
+
+.alarm-view-container::before,
+.alarm-view-container::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4rem;
+    height: 4rem;
+    background: radial-gradient(circle, rgba(102, 102, 102, 1) 20%, rgba(0, 0, 0, 1) 80%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: wave 3s infinite ease-in-out;
+    z-index: 0;
+}
+
+.alarm-view-container::before {
+    animation-delay: 0s;
+}
+
+.alarm-view-container::after {
+    animation-delay: 1s; /* Startar 1 sekund efter ::before */
+}
+
+
+@keyframes wave {
+    0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(7);
+        opacity: 0;
+    }
+}
