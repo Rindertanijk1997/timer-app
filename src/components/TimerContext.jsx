@@ -5,7 +5,7 @@ export const TimerContext = createContext();
 
 export const TimerProvider = ({ children }) => {
   const [secondsLeft, setSecondsLeft] = useState(0);
-  const [initialTotalDuration, setInitialTotalDuration] = useState(0); // Ny state för total varaktighet
+  const [initialTotalDuration, setInitialTotalDuration] = useState(0); 
   const [timerActive, setTimerActive] = useState(false);
   const navigate = useNavigate(); 
 

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TimerContext } from '../TimerContext'; 
 import { motion } from 'framer-motion';
-import pil from '../../Assets/pil.png'; // Importera bilden
+import pil from '../../Assets/pil.png'; 
 import './SetTimer.css';
 
 const SetTimer = () => {
@@ -27,7 +27,7 @@ const SetTimer = () => {
         <div className="set-timer-container">
             <section className='set-time'>
                 <button className="arrow" onClick={decreaseMinutes}>
-                    <img src={pil} alt="Decrease" className="arrow-img left-arrow" /> {/* Använd den nya klassen här */}
+                    <img src={pil} alt="Decrease" className="arrow-img left-arrow" /> 
                 </button>
                 <section className="minutes">
                     <motion.span

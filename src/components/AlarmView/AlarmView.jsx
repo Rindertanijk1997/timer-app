@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import './AlarmView.css';
@@ -11,28 +11,53 @@ const waveVariants = {
 };
 
 const vibrationVariants = {
-  animate: { x: [-2, 2], transition: { repeat: Infinity, repeatType: "reverse", duration: 0.05 } }
+  initial: { x: 0 }, 
+  animate: {
+    x: [-2, 2], 
+    transition: { repeat: Infinity, repeatType: "reverse", duration: 0.05 } 
+  }
 };
 
 const AlarmView = () => {
-  const [waves, setWaves] = useState([]);
+  const [waves, setWaves] = React.useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const interval = setInterval(() => setWaves(waves => [...waves, Date.now()]), 1000);
+  const addWave = () => {
+    setWaves(prev => [...prev, Date.now()]);
+  };
+
+  React.useEffect(() => {
+    const interval = setInterval(addWave, 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="alarm-view-container">
-      <motion.img src={AlarmIcon} alt="Alarm Icon" className="alarm-icon" variants={vibrationVariants} animate="animate" />
+      {/* Vibrationseffekt på alarm-ikonen */}
+      <motion.img
+        src={AlarmIcon}
+        alt="Alarm Icon"
+        className="alarm-icon"
+        variants={vibrationVariants}
+        initial="initial"
+        animate="animate"
+      />
       <h1 className="times-up-text">Times Up!</h1>
       <AnimatePresence>
         {waves.map(key => (
-          <motion.div key={key} className="wave" variants={waveVariants} initial="initial" animate="animate" exit="exit" />
+          <motion.div
+            key={key}
+            className="wave"
+            variants={waveVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          />
         ))}
       </AnimatePresence>
-      <button onClick={() => navigate('/set-timer')} className="alarm_button">Set new timer!</button>
+      <section className="alarm_button">
+        <button onClick={() => navigate('/set-timer')}>Set new timer!</button>
+      </section>
     </div>
   );
 };
