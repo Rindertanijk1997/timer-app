@@ -1,0 +1,50 @@
+.digital-timer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100%;
+    background-color: beige; 
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+
+.Digital_h1 {
+    margin: 0; 
+    font-size: 32px; 
+    text-align: center; 
+    position: absolute; 
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.Digital_clock {
+    font-size: 72px; 
+    margin: 20px 0; 
+    text-align: center; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.Digital_button {
+    margin-top: auto;
+    margin-bottom: 2rem;
+    padding: 10px 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.728);
+    background-color: beige;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0, 0.728);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Digital_button:hover {
+    background-color: rgba(0, 0, 0, 0.818);
+    color: beige;
+}

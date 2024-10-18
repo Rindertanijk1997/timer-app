@@ -1,0 +1,79 @@
+.set-timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: beige;
+    color: black;
+    padding: 20px;
+}
+
+.set-time {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 60%;
+}
+
+.minutes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.minutes-time {
+    font-size: 72px;
+    margin: 0;
+}
+
+.minutes-h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0;
+    color: rgba(0, 0, 0, 0.743);
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 48px;
+    color: black;
+    cursor: pointer;
+    width: 50px;
+}
+
+.start_button {
+    margin-top: auto;
+    margin-bottom: 2rem;
+    padding: 10px 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    background-color: beige;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.start_button:hover {
+    background-color: rgba(0, 0, 0, 0.818);
+    color: beige;
+    border: none;
+}
+
+.arrow {
+    cursor: pointer; 
+}
+
+.arrow-img {
+    width: 30px; 
+    height: 30px; 
+}
+
+.left-arrow {
+    transform: rotate(180deg);
+}
+
+
