@@ -5,6 +5,7 @@ export const TimerContext = createContext();
 
 export const TimerProvider = ({ children }) => {
   const [secondsLeft, setSecondsLeft] = useState(0);
+  const [initialTotalDuration, setInitialTotalDuration] = useState(0); // Ny state för total varaktighet
   const [timerActive, setTimerActive] = useState(false);
   const navigate = useNavigate(); 
 
@@ -24,12 +25,14 @@ export const TimerProvider = ({ children }) => {
   }, [secondsLeft, timerActive, navigate]); 
 
   const startTimer = (minutes) => {
-    setSecondsLeft(minutes * 60);
+    const totalSeconds = minutes * 60;
+    setSecondsLeft(totalSeconds);
+    setInitialTotalDuration(totalSeconds); // Spara den totala varaktigheten
     setTimerActive(true);
   };
 
   return (
-    <TimerContext.Provider value={{ secondsLeft, setSecondsLeft, setTimerActive, startTimer }}>
+    <TimerContext.Provider value={{ secondsLeft, initialTotalDuration, setSecondsLeft, setTimerActive, startTimer }}>
       {children}
     </TimerContext.Provider>
   );
