@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom'; // Lägg till useNavigate
 import './AlarmView.css';
 import AlarmIcon from '../../Assets/alarmIcon.svg'; // Kontrollera sökvägen
 
@@ -11,6 +12,8 @@ const waveVariants = {
 
 const AlarmView = () => {
   const [waves, setWaves] = React.useState([]);
+  const navigate = useNavigate(); // Skapa navigate-funktionen
+
   const addWave = () => {
     setWaves(prev => [...prev, Date.now()]); // Använder timestamp som unik key
   };
@@ -36,6 +39,9 @@ const AlarmView = () => {
           />
         ))}
       </AnimatePresence>
+      <section className="alarm_button">
+        <button onClick={() => navigate('/set-timer')}>Set new timer!</button>
+      </section>
     </div>
   );
 };
