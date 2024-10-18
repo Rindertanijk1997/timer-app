@@ -48,7 +48,7 @@
 }
 
 .alarm_button button {
-    padding: 10px 20px; /* Minskat padding för att förhindra att knappen blir för hög */
+    padding: 10px 20px; 
     font-size: 20px;
     font-weight: 600;
     color: #050505;

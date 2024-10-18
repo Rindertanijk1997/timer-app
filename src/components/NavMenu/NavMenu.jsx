@@ -1,4 +1,3 @@
-// src/components/NavMenu/NavMenu.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import navIcon from '../../Assets/navicon.svg';
