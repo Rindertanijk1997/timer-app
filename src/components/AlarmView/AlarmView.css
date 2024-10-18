@@ -60,4 +60,8 @@
     white-space: nowrap; 
 }
 
+.alarm_button button:hover {
+    background-color: beige;
+    color: black;
+}
   

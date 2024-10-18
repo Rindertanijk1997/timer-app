@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom'; // Lägg till useNavigate
+import { useNavigate } from 'react-router-dom';
 import './AlarmView.css';
-import AlarmIcon from '../../Assets/alarmIcon.svg'; // Kontrollera sökvägen
+import AlarmIcon from '../../Assets/alarmIcon.svg';
 
 const waveVariants = {
   initial: { scale: 0, opacity: 0 },
@@ -10,12 +10,21 @@ const waveVariants = {
   exit: { opacity: 0, transition: { duration: 0.5 } }
 };
 
+// Lägg till vibrationseffekt
+const vibrationVariants = {
+  initial: { x: 0 }, // Startläge
+  animate: {
+    x: [-2, 2], // Liten horisontell rörelse
+    transition: { repeat: Infinity, repeatType: "reverse", duration: 0.05 } // Snabb repetition
+  }
+};
+
 const AlarmView = () => {
   const [waves, setWaves] = React.useState([]);
-  const navigate = useNavigate(); // Skapa navigate-funktionen
+  const navigate = useNavigate();
 
   const addWave = () => {
-    setWaves(prev => [...prev, Date.now()]); // Använder timestamp som unik key
+    setWaves(prev => [...prev, Date.now()]);
   };
 
   React.useEffect(() => {
@@ -25,7 +34,15 @@ const AlarmView = () => {
 
   return (
     <div className="alarm-view-container">
-      <img src={AlarmIcon} alt="Alarm Icon" className="alarm-icon" />
+      {/* Vibrationseffekt på alarm-ikonen */}
+      <motion.img
+        src={AlarmIcon}
+        alt="Alarm Icon"
+        className="alarm-icon"
+        variants={vibrationVariants}
+        initial="initial"
+        animate="animate"
+      />
       <h1 className="times-up-text">Times Up!</h1>
       <AnimatePresence>
         {waves.map(key => (
