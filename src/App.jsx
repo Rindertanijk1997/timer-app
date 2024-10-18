@@ -6,33 +6,28 @@ import SetTimer from './components/SetTimer/SetTimer';
 import DigitalTimer from './components/DigitalTimer/DigitalTimer';
 import AnalogTimer from './components/AnalogTimer/AnalogTimer';
 import AlarmView from './components/AlarmView/AlarmView';
-import NavMenu from './components/NavMenu/NavMenu'; // Importera NavMenu
+import NavMenu from './components/NavMenu/NavMenu';
 import './App.css';
 
-const App = () => {
-  return (
-    <Router>
-      <TimerProvider>
-        <div className="app-container">
-          <div className="mobile-screen">
-            <AppContent /> {/* Flytta huvudinnehållet till en separat komponent */}
-          </div>
+const routesWithNavMenu = ['/set-timer', '/digital-timer', '/analog-timer', '/nav-menu'];
+
+const App = () => (
+  <Router>
+    <TimerProvider>
+      <div className="app-container">
+        <div className="mobile-screen">
+          <AppContent />
         </div>
-      </TimerProvider>
-    </Router>
-  );
-};
+      </div>
+    </TimerProvider>
+  </Router>
+);
 
 const AppContent = () => {
-  const location = useLocation(); // useLocation måste vara här inuti Router-komponenten
-
-  // Definiera vilka vägar där NavMenu ska visas
-  const routesWithNavMenu = ['/set-timer', '/digital-timer', '/analog-timer', '/nav-menu'];
-
+  const { pathname } = useLocation();
   return (
     <>
-      {/* Visa NavMenu endast om den aktuella rutten finns i arrayen */}
-      {routesWithNavMenu.includes(location.pathname) && <NavMenu />}
+      {routesWithNavMenu.includes(pathname) && <NavMenu />}
       <Routes>
         <Route path="/" element={<Loading />} />
         <Route path="/set-timer" element={<SetTimer />} />
