@@ -14,7 +14,7 @@
     width: 85px;
     height: auto;
     z-index: 1;
-    position: relative; /* Låter vågorna centreras kring denna */
+    position: relative; 
 }
 
 .times-up-text {

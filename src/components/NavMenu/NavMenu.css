@@ -1,3 +1,4 @@
+
 .nav-icon {
     position: absolute;
     top: 20px;
@@ -11,7 +12,7 @@
 .nav-menu {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%; 
     width: 100%;
     height: 100%;
     background-color: rgba(75, 75, 75, 0.932);
@@ -20,6 +21,11 @@
     align-items: center;
     justify-content: center;
     z-index: 999;
+    transition: left 0.6s ease; 
+}
+
+.nav-menu.open {
+    left: 0; /* Flytta in på skärmen när den är öppen */
 }
 
 .nav-menu ul {
@@ -32,9 +38,15 @@
 }
 
 .nav-menu a {
-    color: rgba(230, 213, 157, 0.93);
+    color: rgba(177, 233, 209, 0.93);
     text-decoration: none;
     font-size: 24px;
     font-weight: 400;
+    text-shadow: 1px 1px 0px black, -1px -1px 0px black, -1px 1px 0px black, 1px -1px 0px black
 }
 
+
+
+.nav-menu a:hover { /* Ta bort mellanslaget här */
+    color: rgba(229, 229, 229, 0.93);
+}

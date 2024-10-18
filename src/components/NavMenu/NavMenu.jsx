@@ -14,20 +14,17 @@ const NavMenu = () => {
     return (
         <>
             <img src={navIcon} alt="Navigation Icon" className="nav-icon" onClick={toggleMenu} />
-            {isOpen && (
-                <div className="nav-menu">
-                    <ul>
-                        <li><Link to="/" onClick={toggleMenu}>Start</Link></li>
-                        <li><Link to="/set-timer" onClick={toggleMenu}>Set Timer</Link></li>
-                        <li><Link to="/digital-timer" onClick={toggleMenu}>Digital Timer</Link></li>
-                        <li><Link to="/analog-timer" onClick={toggleMenu}>Analog Timer</Link></li>
-                        <li><Link to="/alarm-view" onClick={toggleMenu}>Alarm</Link></li>
-                    </ul>
-                </div>
-            )}
+            <div className={`nav-menu ${isOpen ? 'open' : ''}`}>
+                <ul>
+                    <li><Link to="/" onClick={toggleMenu}>Start</Link></li>
+                    <li><Link to="/set-timer" onClick={toggleMenu}>Set Timer</Link></li>
+                    <li><Link to="/digital-timer" onClick={toggleMenu}>Digital Timer</Link></li>
+                    <li><Link to="/analog-timer" onClick={toggleMenu}>Analog Timer</Link></li>
+                    <li><Link to="/alarm-view" onClick={toggleMenu}>Alarm</Link></li>
+                </ul>
+            </div>
         </>
     );
 };
 
 export default NavMenu;
-

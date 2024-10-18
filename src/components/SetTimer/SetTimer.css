@@ -57,3 +57,17 @@
     cursor: pointer;
 }
 
+.arrow {
+    cursor: pointer; 
+}
+
+.arrow-img {
+    width: 30px; 
+    height: 30px; 
+}
+
+.left-arrow {
+    transform: rotate(180deg);
+}
+
+
