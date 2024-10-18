@@ -45,7 +45,7 @@ const SetTimer = () => {
                     <img src={pil} alt="Increase" className="arrow-img" />
                 </button>
             </section>
-            <button className="start_button" onClick={startTimerAndNavigate}>Starta Timer</button>
+            <button className="start_button" onClick={startTimerAndNavigate}>Start Timer</button>
         </div>
     );
 };

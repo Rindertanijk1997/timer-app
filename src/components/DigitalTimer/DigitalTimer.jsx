@@ -12,7 +12,7 @@ const DigitalTimer = () => {
 
   const handleCancel = () => {
     setTimerActive(false);  // Stoppa timern
-    navigate('/set-timer'); // Navigera tillbaka till set-timer sidan
+    navigate('/set-timer'); 
   };
 
   return (

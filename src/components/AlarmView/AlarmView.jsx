@@ -10,12 +10,11 @@ const waveVariants = {
   exit: { opacity: 0, transition: { duration: 0.5 } }
 };
 
-// Lägg till vibrationseffekt
 const vibrationVariants = {
-  initial: { x: 0 }, // Startläge
+  initial: { x: 0 }, 
   animate: {
-    x: [-2, 2], // Liten horisontell rörelse
-    transition: { repeat: Infinity, repeatType: "reverse", duration: 0.05 } // Snabb repetition
+    x: [-2, 2], 
+    transition: { repeat: Infinity, repeatType: "reverse", duration: 0.05 } 
   }
 };
 
