@@ -43,3 +43,8 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.Digital_button:hover {
+    background-color: rgba(0, 0, 0, 0.818);
+    color: beige;
+}

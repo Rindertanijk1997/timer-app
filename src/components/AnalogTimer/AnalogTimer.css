@@ -41,3 +41,8 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.Analog_button:hover {
+    background-color: rgba(0, 0, 0, 0.818);
+    color: beige;
+}

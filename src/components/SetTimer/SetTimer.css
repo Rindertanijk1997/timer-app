@@ -57,6 +57,12 @@
     cursor: pointer;
 }
 
+.start_button:hover {
+    background-color: rgba(0, 0, 0, 0.818);
+    color: beige;
+    border: none;
+}
+
 .arrow {
     cursor: pointer; 
 }
