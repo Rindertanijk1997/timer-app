@@ -21,11 +21,11 @@
     align-items: center;
     justify-content: center;
     z-index: 999;
-    transition: left 0.6s ease; 
+    transition: left 0.6s ease-out; 
 }
 
 .nav-menu.open {
-    left: 0; /* Flytta in på skärmen när den är öppen */
+    left: 0; /* åker in från vänster */
 }
 
 .nav-menu ul {
